@@ -15,7 +15,7 @@ import { routes } from './app.router';
 import { AppComponent } from './app.component';
 
 export function createTranslateLoader(http: Http) {
-  return new TranslateStaticLoader(http, '/assets/locales', '.json');
+  return new TranslateStaticLoader(http, 'assets/locales', '.json');
 }
 
 @NgModule({
