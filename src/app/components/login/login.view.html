@@ -1,0 +1,67 @@
+<div class="login" [fxLayout]="row" fxLayoutAlign="center center">
+<md-card fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="80%" class="login_content">
+    <md-card-title  [fxLayout]="row" fxLayoutAlign="center center">{{'LOGIN' | translate}}</md-card-title>
+    <md-card-subtitle  [fxLayout]="row" fxLayoutAlign="center center">{{'LOGIN_FORM_WITH_VALIDATION' | translate}}</md-card-subtitle>
+    <md-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+            <div [fxLayout]="row" fxLayoutAlign="center center">
+                <md-input-container
+                        fxFlex="80%"
+                        dividerColor="{{ loginForm.controls['email'].touched && !loginForm.controls['email'].valid ? 'warn' : 'primary' }}">
+                    <input md-input
+                           #email
+                           placeholder="{{'EMAIL' | translate}}"
+                           [formControl]="loginForm.controls['email']">
+                    <md-hint align="end" *ngIf="loginForm.controls['email'].touched && !loginForm.controls['email'].valid" [ngStyle]="{'color': 'red'}">
+                        {{email.value.length}} / 50
+                        <small *ngIf="loginForm.controls['email'].hasError('required')">{{'VALID_EMAIL_REQUIRED' | translate}}</small>
+                        <small *ngIf="loginForm.controls['email'].hasError('invalidEmail')">{{'INVALID_EMAIL' | translate}}</small>
+                    </md-hint>
+                </md-input-container>
+            </div>
+
+            <div [fxLayout]="row" fxLayoutAlign="center center">
+                <md-input-container
+                        fxFlex="80%"
+                        dividerColor="{{ loginForm.controls['password'].touched && !loginForm.controls['password'].valid ? 'warn' : 'primary' }}">
+                    <input type="password"
+                           md-input
+                           #password
+                           placeholder="{{'PASSWORD' | translate}}"
+                           [formControl]="loginForm.controls['password']">
+                    <md-hint align="end" *ngIf="loginForm.controls['password'].touched && !loginForm.controls['password'].valid" [ngStyle]="{'color': 'red'}">
+                        {{password.value.length}} / 20
+                        <small *ngIf="loginForm.controls['password'].hasError('required')">a valid password is required.</small>
+                        <small *ngIf="loginForm.controls['password'].hasError('minlength')">password length must be at least 8.</small>
+                    </md-hint>
+                </md-input-container>
+            </div>
+
+            <div [fxLayout]="row" fxLayoutAlign="center center">
+                <md-input-container
+                        fxFlex="80%"
+                        dividerColor="{{ loginForm.controls['confirmedPassword'].touched && (!loginForm.controls['confirmedPassword'].valid || loginForm.hasError('passwordMissMatched')) ? 'warn' : 'primary' }}">
+                    <input type="password"
+                           md-input
+                           #confirmedPassword
+                           placeholder="{{'CONFIRM_PASSWORD' | translate}}"
+                           [formControl]="loginForm.controls['confirmedPassword']">
+                    <md-hint align="end" *ngIf="loginForm.controls['confirmedPassword'].touched && (!loginForm.controls['confirmedPassword'].valid || loginForm.hasError('passwordMissMatched'))" [ngStyle]="{'color': 'red'}">
+                        {{confirmedPassword.value.length}} / 20
+                        <small *ngIf="loginForm.controls['confirmedPassword'].hasError('required')">can't be empty.</small>
+                        <small *ngIf="loginForm.controls['confirmedPassword'].hasError('minlength')">length must be at least 8.</small>
+                        <small *ngIf="loginForm.hasError('passwordMissMatched')">didn't match.</small>
+                    </md-hint>
+                </md-input-container>
+            </div>
+
+            <md-card-actions align="center">
+              <button md-raised-button type="submit" *ngIf="!isSubmitting" [disabled]="!loginForm.valid" color="primary">{{'SUBMIT' | translate}}</button>
+              <button md-raised-button type="submit" *ngIf="isSubmitting" [disabled]="true" color="primary">{{'SUBMITTING' | translate}} <md-spinner *ngIf="isSubmitting" class="login_progress-circle"></md-spinner></button>
+            </md-card-actions>
+        </form>
+    </md-card-content>
+</md-card>
+</div>
+
+

@@ -1,0 +1,37 @@
+$header-padding: 0px;
+$footer-padding: 0px;
+
+.home {
+
+}
+
+.home .home_header{
+  position: relative;
+  bottom: $header-padding;
+  z-index: 2;
+}
+
+.home_header .header_lang-control {
+  position: absolute;
+  right: 30px;
+}
+
+.home_header .header_lang-control a{
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.home_header a.router-link-active {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.home .home_content{
+
+}
+
+.home .home_footer{
+  position: fixed;
+  bottom: $footer-padding;
+  z-index: 2;
+}

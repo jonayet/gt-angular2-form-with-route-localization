@@ -1,0 +1,20 @@
+<div class="home">
+    <div class="home_header">
+        <md-toolbar color="primary" [fxLayout]="row" fxLayoutAlign="center center">
+            <div fxFlex="50%">{{'HEADER' | translate}}</div>
+
+          <div fxFlex="50%" class="header_lang-control">
+            <a [routerLink]="'/en'" [routerLinkActive]="['router-link-active']">EN</a>
+            <a [routerLink]="'/de'" [routerLinkActive]="['router-link-active']">DE</a>
+          </div>
+        </md-toolbar>
+    </div>
+
+    <div class="home_content" fxFlex>
+        <login></login>
+    </div>
+
+    <md-toolbar class="home_footer" color="accent" [fxLayout]="row" fxLayoutAlign="center center">
+        <div fxFlex>{{'FOOTER' | translate}}</div>
+    </md-toolbar>
+</div>

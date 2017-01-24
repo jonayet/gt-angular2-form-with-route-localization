@@ -1,0 +1,15 @@
+{
+  "HEADER": "Kopfzeile",
+  "FOOTER": "Fußzeile",
+  "LOGIN": "Anmeldung",
+  "LOGIN_FORM_WITH_VALIDATION": "Anmeldeformular mit Validierung.",
+  "EMAIL": "Email",
+  "PASSWORD": "Passwort",
+  "CONFIRM_PASSWORD": "Bestätige das Passwort",
+  "SUBMIT": "Einreichen",
+  "SUBMITTING": "Einreichung",
+  "VALID_EMAIL_REQUIRED": "Ist eine gültige E-Mail erforderlich.",
+  "INVALID_EMAIL": "Email ist ungültig.",
+
+  "ROUTES.login": "Anmeldung"
+}

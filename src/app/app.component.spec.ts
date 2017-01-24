@@ -1,6 +1,9 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async } from '@angular/core/testing';
+import { RouterModule } from '@angular/router';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -9,6 +12,15 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      imports: [
+        RouterModule.forRoot([])
+      ],
+      providers: [
+        {
+          provide: LocationStrategy,
+          useClass: HashLocationStrategy
+        }
+      ]
     });
     TestBed.compileComponents();
   });
@@ -23,12 +35,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('app works!');
-  }));
-
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('app works!');
   }));
 });
