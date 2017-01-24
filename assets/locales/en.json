@@ -1,0 +1,15 @@
+{
+  "HEADER": "Header",
+  "FOOTER": "Footer",
+  "LOGIN": "Login",
+  "LOGIN_FORM_WITH_VALIDATION": "Login form with validation.",
+  "EMAIL": "Email",
+  "PASSWORD": "Password",
+  "CONFIRM_PASSWORD": "Confirm Password",
+  "SUBMIT": "Submit",
+  "SUBMITTING": "Submitting",
+  "VALID_EMAIL_REQUIRED": "a valid email is required.",
+  "INVALID_EMAIL": "email is not valid.",
+
+  "ROUTES.login": "Login"
+}
